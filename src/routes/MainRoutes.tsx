@@ -10,6 +10,7 @@ import SimpleLayout from 'layout/Simple';
 import { SimpleLayoutType } from 'config';
 import { loader as productsLoader, productLoader } from 'api/products';
 import AuthLayout from 'layout/Auth';
+import path from 'path';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
@@ -134,6 +135,16 @@ const MainRoutes = {
         {
           path: '/',
           element: <AuthLogin />
+        }
+      ]
+    },
+    {
+      path: 'dashboard',
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: 'analytics',
+          element: <DashboardAnalytics />
         }
       ]
     }
